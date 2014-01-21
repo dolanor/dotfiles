@@ -1,0 +1,20 @@
+[user]
+	name = "Tanguy Herrmann"
+	email = "dolanor@gmail.com"
+[alias]
+	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ci = commit -m
+	s = status -s --untracked=no
+	dc = diff --color=auto
+	dw = diff --color-words
+	co = checkout
+	b = branch
+[core]
+	editor = vim
+[color]
+	ui = true
+[color "diff"]
+	whitespace = red reverse
+[push]
+	default = simple
