@@ -1,0 +1,24 @@
+[ui]
+username=tanguy.herrmann
+ignore=~/.hgignore
+
+
+[extensions]
+rebase=
+mq=
+kerberos=/home/therrmann/dev/pkg/tools/hg/kerberos/kerberos.py
+shelve=
+color=
+pager=
+
+[alias]
+l = log -G --template "{label('custom.rev',node|short)} {desc|strip|firstline} {label('custom.date', '(')}{label('custom.date', date|age)}{label('custom.date', ')')} {label('custom.author','<')}{label('custom.author',author|person)}{label('custom.author','>')}\n"
+
+[color]
+custom.rev = yellow
+custom.author = green
+custom.date = blue
+
+[pager]
+pager = LESS='FRX' less
+attend = l, log, annotate, cat, diff, export, qdiff, help
