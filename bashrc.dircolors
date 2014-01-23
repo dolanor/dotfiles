@@ -1,0 +1,2 @@
+# source this file at the end of the ~/.bashrc
+eval `dircolors ~/.dir_colors`
