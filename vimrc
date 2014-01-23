@@ -9,6 +9,13 @@ set t_Co=16
 Bundle 'gmarik/vundle'
 Bundle 'Solarized'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-characterize'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-afterimage'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-vinegar'
 
 filetype plugin indent on
 set wildmode=list:longest,full
