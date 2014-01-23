@@ -8,6 +8,7 @@ call vundle#rc()
 set t_Co=16
 Bundle 'gmarik/vundle'
 Bundle 'Solarized'
+Bundle 'tpope/vim-markdown'
 
 filetype plugin indent on
 set wildmode=list:longest,full
