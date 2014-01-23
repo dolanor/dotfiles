@@ -16,5 +16,3 @@
 	ui = true
 [color "diff"]
 	whitespace = red reverse
-[push]
-	default = simple
