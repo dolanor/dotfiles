@@ -16,6 +16,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-afterimage'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-vinegar'
+Bundle 'itchyny/calendar.vim'
+let g:calendar_google_calendar = 1
 
 filetype plugin indent on
 set wildmode=list:longest,full
