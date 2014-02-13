@@ -10,6 +10,7 @@ kerberos=/home/therrmann/dev/pkg/tools/hg/kerberos/kerberos.py
 shelve=
 color=
 pager=
+purge=
 
 [alias]
 l = log -G --template "{label('custom.rev',node|short)} {desc|strip|firstline} {label('custom.date', '(')}{label('custom.date', date|age)}{label('custom.date', ')')} {label('custom.author','<')}{label('custom.author',author|person)}{label('custom.author','>')}\n"
