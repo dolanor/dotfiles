@@ -45,3 +45,6 @@ set smartcase
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+set hls
+set mouse=a
