@@ -19,6 +19,7 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'itchyny/calendar.vim'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'sukima/xmledit'
+Bundle 'zeitgeist.vim'
 
 let g:calendar_google_calendar = 1
 
