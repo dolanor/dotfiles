@@ -17,6 +17,9 @@ Bundle 'tpope/vim-afterimage'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-vinegar'
 Bundle 'itchyny/calendar.vim'
+Bundle 'derekwyatt/vim-fswitch'
+Bundle 'sukima/xmledit'
+
 let g:calendar_google_calendar = 1
 
 filetype plugin indent on
@@ -48,3 +51,12 @@ match ExtraWhitespace /\s\+$/
 
 set hls
 set mouse=a
+
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
+
+"---------------- FSwitch locations -------------------
+let g:fsnonewfiles=1
+au BufEnter *.cpp,*.cxx,*.c let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = 'reg:|\Csrc\(.*src.*\)\@!|include|'
+au BufEnter *.hpp,*.hxx,*.h let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = 'reg:|\include\(.*include.*\)\@!|src|'
