@@ -4,10 +4,33 @@
 
 function! ZeitgeistLog(filename, vim_use_id)
 python << endpython
+
+import os
+import vim
+import gio
+import time
+import dbus
+from zeitgeist.client import ZeitgeistClient
+from zeitgeist.datamodel import Subject, Event, Interpretation, Manifestation
+
+def start():
+  try:
+    os.zeitgeistclient = ZeitgeistClient()
+    os.got_zeitgeist = True
+  except (RuntimeError, ImportError, dbus.exceptions.DBusException):
+    os.got_zeitgeist = False
+  os.startzg = lambda : None
+
+if not hasattr(os,'startzg'):
+  os.startzg = start
+
+os.startzg()
+
+
 use_id = vim.eval("a:vim_use_id")
 filename = vim.eval("a:filename")
 precond = os.getuid() != 0 and os.getenv('DBUS_SESSION_BUS_ADDRESS') != None
-if got_zeitgeist and precond and filename:
+if os.got_zeitgeist and precond and filename:
   use = {
     "read" : Interpretation.ACCESS_EVENT,
     "new" : Interpretation.CREATE_EVENT,
@@ -38,25 +61,11 @@ if got_zeitgeist and precond and filename:
       subjects=[subject,]
     )
     # print "event: %r" % event
-    zeitgeistclient.insert_event(event)
+    os.zeitgeistclient.insert_event(event)
     # print "insert done"
 endpython
 endfunction
 
-python << endpython
-import os
-import time
-import dbus
-import vim
-try:
-  import gio
-  from zeitgeist.client import ZeitgeistClient
-  from zeitgeist.datamodel import Subject, Event, Interpretation, Manifestation
-  zeitgeistclient = ZeitgeistClient()
-  got_zeitgeist = True
-except (RuntimeError, ImportError, dbus.exceptions.DBusException):
-  got_zeitgeist = False
-endpython
 augroup zeitgeist
 au!
 au BufRead * call ZeitgeistLog (expand("%:p"), "read")
