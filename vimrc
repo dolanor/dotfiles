@@ -31,6 +31,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+set directory=$HOME/.vim_swap
+silent! call mkdir(&directory, "p")
+
 " size of a hard tabstop
 set tabstop=4
 " size of an "indent"
