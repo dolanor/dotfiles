@@ -21,6 +21,7 @@ Bundle 'derekwyatt/vim-fswitch'
 Bundle 'sukima/xmledit'
 Bundle 'zeitgeist.vim'
 Bundle 'ctrlp.vim'
+Bundle 'valloric/YouCompleteMe'
 
 let g:calendar_google_calendar = 1
 
