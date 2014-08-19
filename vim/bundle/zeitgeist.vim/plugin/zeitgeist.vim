@@ -10,11 +10,23 @@ import os
 import vim
 import time
 
+try:
+  __import__('imp').find_module('gio')
+  gio_available = True
+except ImportError:
+  gio_available = False
+
+try:
+  __import__('imp').find_module('mimetypes')
+  mimetypes_available = True
+except ImportError:
+  mimetypes_available = False
 
 class ZeitgeistLogInstance:
   zeitgeistclient = None
   got_zeitgeist = False
   startzg = lambda : None
+
 
 def start():
   try:
@@ -37,7 +49,6 @@ if not hasattr(ZeitgeistLogInstance,'startzg'):
   ZeitgeistLogInstance.startzg = start
 
 try:
-  #  ZeitgeistLogInstance.startzg()
   start()
   use_id = vim.eval("a:vim_use_id")
   filename = vim.eval("a:filename")
@@ -49,32 +60,37 @@ try:
       "new" : Interpretation.CREATE_EVENT,
       "write" : Interpretation.MODIFY_EVENT} [use_id]
 
-    try:
+    if gio_available == True:
       import gio
       f = gio.File(filename)
       fi = f.query_info(gio.FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE)
       uri = f.get_uri()
       mimetype = fi.get_content_type()
-    except ImportError:
-      pass
-    except gio.Error:
+    elif mimetypes_available == True:
+      import mimetypes
+      import urllib
+      uri=urllib.pathname2url(filename)
+      mimetype=mimetypes.guess_type(uri, strict=False).type
     else:
-      subject = Subject.new_for_values(
-        uri=unicode(uri),
-        text=unicode(uri.rpartition("/")[2]),
-        interpretation=unicode(Interpretation.DOCUMENT),
-        manifestation=unicode(Manifestation.FILE_DATA_OBJECT),
-        origin=unicode(uri.rpartition("/")[0]),
-        mimetype=unicode(mimetype)
-      )
-      event = Event.new_for_values(
-        timestamp=int(time.time()*1000),
-        interpretation=unicode(use),
-        manifestation=unicode(Manifestation.USER_ACTIVITY),
-        actor="application://gvim.desktop",
-        subjects=[subject,]
-      )
-      ZeitgeistLogInstance.zeitgeistclient.insert_event(event)
+      uri=filename
+      mimetype='application/octet-stream'
+
+    subject = Subject.new_for_values(
+      uri=unicode(uri),
+      text=unicode(uri.rpartition("/")[2]),
+      interpretation=unicode(Interpretation.DOCUMENT),
+      manifestation=unicode(Manifestation.FILE_DATA_OBJECT),
+      origin=unicode(uri.rpartition("/")[0]),
+      mimetype=unicode(mimetype)
+    )
+    event = Event.new_for_values(
+      timestamp=int(time.time()*1000),
+      interpretation=unicode(use),
+      manifestation=unicode(Manifestation.USER_ACTIVITY),
+      actor="application://gvim.desktop",
+      subjects=[subject,]
+    )
+    ZeitgeistLogInstance.zeitgeistclient.insert_event(event)
 except:
   pass
 endpython
