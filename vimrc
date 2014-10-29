@@ -2,6 +2,7 @@ set nocompatible
 
 filetype off
 
+let mapleader = ","
 set rtp+=$HOME/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -19,9 +20,15 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'itchyny/calendar.vim'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'sukima/xmledit'
-Bundle 'dolanor/zeitgeist.vim'
 Bundle 'ctrlp.vim'
-Bundle 'valloric/YouCompleteMe'
+Bundle 'fatih/vim-go'
+Bundle 'dolanor/zeitgeist.vim'
+"Bundle 'valloric/YouCompleteMe'
+Bundle 'majutsushi/tagbar'
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>e <Plug>(go-rename)
+au FileType go nmap <leader>c <Plug>(go-coverage)
 
 let g:calendar_google_calendar = 1
 
@@ -66,3 +73,4 @@ au FileType xml setlocal foldmethod=syntax
 let g:fsnonewfiles=1
 au BufEnter *.cpp,*.cxx,*.c let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = 'reg:|\Csrc\(.*src.*\)\@!|include|'
 au BufEnter *.hpp,*.hxx,*.h let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = 'reg:|\include\(.*include.*\)\@!|src|'
+
