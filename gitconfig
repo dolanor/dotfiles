@@ -1,6 +1,6 @@
 [user]
 	name = "Tanguy Herrmann"
-	email = "dolanor@evereska.org"
+	email = "dolanorgit@evereska.org"
 [alias]
 	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
