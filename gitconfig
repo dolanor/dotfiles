@@ -6,6 +6,8 @@
 	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ci = commit -m
 	s = status -s --untracked=no
+	sn = status -s --untracked=normal
+	sa = status -s --untracked=all
 	dc = diff --color=auto
 	dw = diff --color-words
 	co = checkout
