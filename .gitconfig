@@ -9,7 +9,8 @@
 	sn = status -s --untracked=normal
 	sa = status -s --untracked=all
 	dc = diff --color=auto
-	dw = diff --color-words
+    dw = diff --color-words
+    dwe = diff --color-words="[^[:space:]./]"
 	co = checkout
 	b = branch
 [core]
