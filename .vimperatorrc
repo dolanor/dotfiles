@@ -2,5 +2,5 @@
 
 source! /home/dolanor/.vimperatorrc.local
 
-set hintchars=eiuaopébxyàktsrncvdljzqghfç
+set hintchars=eiuaopbxyktsrncvdljzqghf
 " vim: set ft=vimperator:
