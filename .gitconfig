@@ -13,6 +13,7 @@
     dwe = diff --color-words="[^[:space:]./]"
 	co = checkout
 	b = branch
+	appraise = !/home/dolanor/.local/gopath/bin/git-appraise
 [core]
 	editor = vim
 [color]
