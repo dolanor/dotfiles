@@ -1,0 +1,3 @@
+# To source from the ~/.bashrc
+GOPATH=~/.local/gopath/
+PATH=$GOPATH/bin:$PATH

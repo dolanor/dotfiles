@@ -1,0 +1,2 @@
+# To source from ~/.bashrc
+stty -ixon -ixoff
