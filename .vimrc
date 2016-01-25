@@ -74,3 +74,14 @@ let g:fsnonewfiles=1
 au BufEnter *.cpp,*.cxx,*.c let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = 'reg:|\Csrc\(.*src.*\)\@!|include|'
 au BufEnter *.hpp,*.hxx,*.h let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = 'reg:|\include\(.*include.*\)\@!|src|'
 
+
+command -nargs=0 -bar Update if &modified
+    \|  if empty(bufname('%'))
+    \|      browse confirm write
+    \|  else
+    \|      confirm write
+    \|  endif
+    \|endif
+
+
+nnoremap <silent> <C-s> :<C-u>Update<CR>
