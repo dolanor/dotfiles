@@ -25,6 +25,7 @@ Bundle 'fatih/vim-go'
 Bundle 'dolanor/zeitgeist.vim'
 "Bundle 'valloric/YouCompleteMe'
 Bundle 'majutsushi/tagbar'
+Bundle 'jaxbot/semantic-highlight.vim'
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>e <Plug>(go-rename)
@@ -75,7 +76,7 @@ au BufEnter *.cpp,*.cxx,*.c let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs =
 au BufEnter *.hpp,*.hxx,*.h let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = 'reg:|\include\(.*include.*\)\@!|src|'
 
 
-command -nargs=0 -bar Update if &modified
+command! -nargs=0 -bar Update if &modified
     \|  if empty(bufname('%'))
     \|      browse confirm write
     \|  else
