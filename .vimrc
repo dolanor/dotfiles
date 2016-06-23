@@ -39,9 +39,11 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>e <Plug>(go-rename)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+set path+=$GOPATH/src
+
 let g:calendar_google_calendar = 1
 
-filetype plugin indent on
+set wildmenu
 set wildmode=list:longest,full
 
 syntax enable
@@ -71,6 +73,9 @@ set smartcase
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+highlight NonStandardWhitespace ctermbg=red guibg=red
+match NonStandardWhitespace /[ ]/
+
 set hls
 set mouse=a
 
@@ -94,3 +99,4 @@ command! -nargs=0 -bar Update if &modified
 
 
 nnoremap <silent> <C-s> :<C-u>Update<CR>
+inoremap <silent> <C-s> <Esc>:<C-u>Update<CR>i
