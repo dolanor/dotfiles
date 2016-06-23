@@ -3,29 +3,37 @@ set nocompatible
 filetype off
 
 let mapleader = ","
-set rtp+=$HOME/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 set t_Co=16
-Bundle 'gmarik/vundle'
-Bundle 'Solarized'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-characterize'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-afterimage'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-vinegar'
-Bundle 'itchyny/calendar.vim'
-Bundle 'derekwyatt/vim-fswitch'
-Bundle 'sukima/xmledit'
-Bundle 'ctrlp.vim'
-Bundle 'fatih/vim-go'
-Bundle 'dolanor/zeitgeist.vim'
-"Bundle 'valloric/YouCompleteMe'
-Bundle 'majutsushi/tagbar'
-Bundle 'jaxbot/semantic-highlight.vim'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Solarized'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-characterize'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-afterimage'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'tpope/vim-abolish'
+Plugin 'itchyny/calendar.vim'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'sukima/xmledit'
+Plugin 'ctrlp.vim'
+Plugin 'fatih/vim-go'
+Plugin 'dolanor/zeitgeist.vim'
+Plugin 'valloric/YouCompleteMe'
+"Bundle 'Shougo/neocomplete.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'kylef/apiblueprint.vim'
+Plugin 'cespare/vim-toml'
+
+call vundle#end()
+filetype plugin indent on
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>e <Plug>(go-rename)
