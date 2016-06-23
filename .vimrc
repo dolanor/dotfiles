@@ -100,3 +100,7 @@ command! -nargs=0 -bar Update if &modified
 
 nnoremap <silent> <C-s> :<C-u>Update<CR>
 inoremap <silent> <C-s> <Esc>:<C-u>Update<CR>i
+
+
+" xmllint reindent (ubuntu package libxml2-utils)
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
