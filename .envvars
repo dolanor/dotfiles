@@ -1,6 +1,18 @@
 # To source from the ~/.bashrc
+<<<<<<< Updated upstream
 GOPATH=~/go
 PATH=$GOPATH/bin:/usr/local/go/bin:~/.local/bin:~/.local/camlistore:$PATH
 
 # Used by my vim bindings for code review
 REVIEW_BASE=origin/master
+=======
+
+# Go
+export GOPATH=~/full-go
+export PATH=~/full-go/bin:~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bin/:~/.local/gopath/bin:$PATH:~/.dotfiles/diff-so-fancy/
+
+# android
+export PATH=$PATH:/home/dolanor/.local/AndroidSdk/tools/
+
+CDPATH=.:$GOPATH/src/github.com:.local/gopath/src/evereska.org/:$GOPATH/src
+>>>>>>> Stashed changes

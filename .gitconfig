@@ -3,8 +3,8 @@
 	email = "dolanorgit@evereska.org"
 	signingKey = 000321555
 [alias]
-	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit 
 	ci = commit -m
 	s = status -s --untracked=no
 	sn = status -s --untracked=normal
@@ -19,8 +19,10 @@
     rstat = !/home/dolanor/.dotfiles/rstat.sh
     rfiles = !/home/dolanor/.dotfiles/rfiles.sh
     rheatmap = !git-heatmap
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff -w --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 [core]
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [color "diff"]
@@ -30,6 +32,11 @@
 
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[url "git@code.tuxago.com:"]
+    insteadOf = https://code.tuxago.com/
+[url "git@gitlab.com:"]
+    insteadOf = https://gitlab.com/
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

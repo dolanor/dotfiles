@@ -7,3 +7,9 @@
 [submodule "resources/gnome-terminal-colors-solarized"]
 	path = resources/gnome-terminal-colors-solarized
 	url = https://github.com/Anthony25/gnome-terminal-colors-solarized
+[submodule "diff-so-fancy"]
+	path = diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim
