@@ -38,9 +38,13 @@ Plugin 'nicwest/vim-git-appraise'
 call vundle#end()
 filetype plugin indent on
 
+au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>e <Plug>(go-rename)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>t <Plug>(go-test)
+
+let g:go_fmt_command = "goimports"
 
 set path+=$GOPATH/src
 
