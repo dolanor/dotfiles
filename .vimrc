@@ -111,3 +111,14 @@ inoremap <silent> <C-s> <Esc>:<C-u>Update<CR>i
 
 " xmllint reindent (ubuntu package libxml2-utils)
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+" vim-mucomplete
+set completeopt+=menuone
+
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+
+set completeopt+=noselect
+"let g:mucomplete#enable_auto_at_startup = 1
+
