@@ -1,3 +1,6 @@
 # To source from the ~/.bashrc
-GOPATH=~/.local/gopath/
-PATH=$GOPATH/bin:/usr/local/go/bin:~/.local/bin:$PATH
+GOPATH=~/go
+PATH=$GOPATH/bin:/usr/local/go/bin:~/.local/bin:~/.local/camlistore:$PATH
+
+# Used by my vim bindings for code review
+REVIEW_BASE=origin/master
