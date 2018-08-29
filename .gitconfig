@@ -1,6 +1,7 @@
 [user]
 	name = "Tanguy ⧓ Herrmann"
 	email = "dolanorgit@evereska.org"
+	signingKey = 000321555
 [alias]
 	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
