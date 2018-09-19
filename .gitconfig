@@ -15,9 +15,9 @@
 	co = checkout
 	b = branch
 	appraise = !/home/dolanor/.local/gopath/bin/git-appraise
-    review = !vim -p $(git rfiles) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
-    rstat = !git diff --stat $REVIEW_BASE
-    rfiles = !git diff --name-only $REVIEW_BASE
+    review = !/home/dolanor/.dotfiles/review.sh
+    rstat = !/home/dolanor/.dotfiles/rstat.sh
+    rfiles = !/home/dolanor/.dotfiles/rfiles.sh
     rheatmap = !git-heatmap
 [core]
 	editor = vim
