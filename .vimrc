@@ -35,10 +35,10 @@ Plugin 'jaxbot/semantic-highlight.vim'
 "Plugin 'kylef/apiblueprint.vim'
 "Plugin 'cespare/vim-toml'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'wakatime/vim-wakatime'
 Plugin 'nicwest/vim-git-appraise'
 "Plugin 'nelstrom/vim-markdown-folding'
 "Plugin 'vim-scripts/TaskList.vim'
-Plugin 'wakatime/vim-wakatime'
 "Plugin 'mbbill/undotree'
 "Plugin 'aklt/plantuml-syntax'
 "Plugin 'MattesGroeger/vim-bookmarks'
@@ -214,3 +214,6 @@ let g:semanticGUIColors = ['#b58900', '#cb4b16', '#dc322f', '#d33682', '#6c71c4'
 
 " yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" for nice git review
+set diffopt+=vertical
