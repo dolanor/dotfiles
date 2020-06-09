@@ -10,6 +10,7 @@
 	sn = status -s --untracked=normal
 	sa = status -s --untracked=all
 	dc = diff --color=auto -w
+	dcc = diff --color=auto -w --cached
     dw = diff --color-words -w
     dwe = diff --color-words="[^[:space:]./]"
 	co = checkout
