@@ -15,10 +15,38 @@ set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
+" general vim improvements
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-characterize'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-afterimage'
+
+" Languages
+Plugin 'jaxbot/semantic-highlight.vim'
+
+"" Go
 Plugin 'govim/govim'
+
+"" JSON
+Plugin 'tpope/vim-jdaddy'
+"
+"" PlantUML
+Plugin 'aklt/plantuml-syntax'
+
+" Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
+Plugin 'nicwest/vim-git-appraise'
+Plugin 'airblade/vim-gitgutter'
+
+" colorscheme/themes
 Plugin 'altercation/vim-colors-solarized'
+
+
 
 call vundle#end()
 filetype plugin indent on
