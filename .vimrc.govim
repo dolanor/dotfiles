@@ -108,6 +108,7 @@ endif
 
 " end govim default
 
+" nice git review with vertical split
 set diffopt+=vertical
 
 " solarized
@@ -115,3 +116,19 @@ let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
 set t_Co=256
+
+" gutter
+set number
+set relativenumber
+
+" command completion
+set wildmenu
+set wildmode=list:longest,full
+
+" search options
+"" ignore case in search
+set ignorecase
+"" don't ignore case when you type search with some uppercase char
+set smartcase
+"" highlight search
+set hls
