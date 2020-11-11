@@ -25,6 +25,10 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-afterimage'
 
+" DB
+Plugin 'tpope/vim-dadbod'
+Plugin 'kristijanhusak/vim-dadbod-ui'
+
 " Languages
 Plugin 'jaxbot/semantic-highlight.vim'
 
@@ -33,7 +37,7 @@ Plugin 'govim/govim'
 
 "" JSON
 Plugin 'tpope/vim-jdaddy'
-"
+
 "" PlantUML
 Plugin 'aklt/plantuml-syntax'
 
@@ -132,3 +136,6 @@ set ignorecase
 set smartcase
 "" highlight search
 set hls
+
+" add GOPATH/src for file find
+set path+=~/go/src
