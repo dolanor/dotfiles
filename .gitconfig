@@ -3,6 +3,7 @@
 	email = "dolanorgit@evereska.org"
 	signingKey = 000321555
 [alias]
+	lt = log --graph --pretty=tformat:'%Cred%ai%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%ai>%Creset' --abbrev-commit --date=relative
 	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit 
 	ci = commit -m

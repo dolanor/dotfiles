@@ -2,6 +2,8 @@ set nocompatible
 
 filetype off
 
+" required for multi buffer modification like rename
+set hidden
 let mapleader = ","
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -102,6 +104,10 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+set noswapfile  " Don't use swapfile
+set nobackup    " Don't create annoying backup files
+set nowritebackup
+
 set directory=$HOME/.vim_swap
 silent! call mkdir(&directory, "p")
 
@@ -131,7 +137,7 @@ match NonStandardWhitespace /[ ]/
 let g:ackprg = 'pt --smart-case'
 cnoreabbrev pt Ack
 
-set hls
+set hlsearch
 set mouse=a
 
 let g:xml_syntax_folding=1

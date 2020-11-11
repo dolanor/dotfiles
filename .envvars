@@ -1,13 +1,15 @@
 # To source from the ~/.bashrc
 
 # Go
-export GOPATH=~/full-go
-export PATH=~/full-go/bin:~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bin/:~/.local/gopath/bin:$PATH:~/.dotfiles/diff-so-fancy/
+export GOPATH=~/go
+export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bin/:~/.dotfiles/diff-so-fancy/:~/.local/flutter/bin:$PATH
 
 # android
-export PATH=$PATH:/home/dolanor/.local/AndroidSdk/tools/
+export ANDROID_HOME=~/.local/android-sdk
 
-CDPATH=.:$GOPATH/src/github.com:.local/gopath/src/evereska.org/:$GOPATH/src
+CDPATH=.:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com
 #
 # Used by my vim bindings for code review
 REVIEW_BASE=origin/master
+
+export GOPHERJS_GOROOT=~/sdk/go1.12.16
