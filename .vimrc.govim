@@ -50,7 +50,16 @@ Plugin 'airblade/vim-gitgutter'
 " colorscheme/themes
 Plugin 'altercation/vim-colors-solarized'
 
+" Web
+Plugin 'yosssi/vim-gcss'
+Plugin 'yosssi/vim-ace'
 
+" productivity
+Plugin 'wakatime/vim-wakatime'
+
+" inputs
+Plugin 'junegunn/vim-emoji'
+Plugin 'junegunn/fzf'
 
 call vundle#end()
 filetype plugin indent on
@@ -116,8 +125,8 @@ endif
 set diffopt+=vertical
 
 " solarized
-let g:solarized_termcolors=256
-set background=light
+let g:solarized_termcolors=16
+set background=dark
 colorscheme solarized
 set t_Co=256
 
