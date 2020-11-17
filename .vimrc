@@ -2,8 +2,6 @@ set nocompatible
 
 filetype off
 
-" required for multi buffer modification like rename
-set hidden
 let mapleader = ","
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -15,10 +13,7 @@ Plugin 'Solarized'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-characterize'
-Plugin 'tpope/vim-dadbod'
-Plugin 'whiteinge/diffconflicts'
-Plugin 'kristijanhusak/vim-dadbod-ui'
+"Plugin 'tpope/vim-characterize'
 "Plugin 'tpope/vim-speeddating'
 "Plugin 'tpope/vim-repeat'
 "Plugin 'tpope/vim-afterimage'
@@ -38,6 +33,7 @@ Plugin 'yosssi/vim-ace'
 "Plugin 'valloric/YouCompleteMe'
 Plugin 'lifepillar/vim-mucomplete'
 "Plugin 'majutsushi/tagbar'
+Plugin 'jaxbot/semantic-highlight.vim'
 "Plugin 'kylef/apiblueprint.vim'
 "Plugin 'cespare/vim-toml'
 Plugin 'airblade/vim-gitgutter'
