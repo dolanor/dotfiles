@@ -164,3 +164,20 @@ match ExtraWhitespace / /
 
 " add GOPATH/src for file find
 set path+=~/go/src
+
+
+" mappings
+
+"" diff
+noremap ,d :Gdiff<CR>
+
+"" Go
+noremap ,R :GOVIMRename<CR>
+noremap ,c :GOVIMReferences<CR>
+
+
+"" reviews
+noremap ,D :Gdiff origin/master<CR>
+" keep the current buffer and close the diff view, switch it to the next
+" buffer and reopen the diff with origin/master
+noremap ,N :wincmd o<CR>:bnext<CR>:Gdiff origin/master<CR>
