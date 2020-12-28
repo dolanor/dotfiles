@@ -46,3 +46,15 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
