@@ -150,5 +150,17 @@ set smartcase
 "" highlight search
 set hls
 
+" Highlights
+"" use :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" before colorscheme maybe ?
+highlight ExtraWhitespace ctermbg=red guibg=red
+
+" Show trailing whitespace:
+match ExtraWhitespace /\s\+$/
+" Show trailing whitespace and spaces before a tab:
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+" Show NBSP
+match ExtraWhitespace / /
+
 " add GOPATH/src for file find
 set path+=~/go/src
