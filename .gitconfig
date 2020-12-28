@@ -5,22 +5,22 @@
 [alias]
 	lt = log --graph --pretty=tformat:'%Cred%ai%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%ai>%Creset' --abbrev-commit --date=relative
 	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit 
+	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit 
 	ci = commit -m
 	s = status -s --untracked=no
 	sn = status -s --untracked=normal
 	sa = status -s --untracked=all
 	dc = diff --color=auto -w
 	dcc = diff --color=auto -w --cached
-    dw = diff --color-words -w
-    dwe = diff --color-words="[^[:space:]./]"
+	dw = diff --color-words -w
+	dwe = diff --color-words="[^[:space:]./]"
 	co = checkout
 	b = branch
-	appraise = !/home/dolanor/.local/gopath/bin/git-appraise
-    review = !/home/dolanor/.dotfiles/review.sh
-    rstat = !/home/dolanor/.dotfiles/rstat.sh
-    rfiles = !/home/dolanor/.dotfiles/rfiles.sh
-    rheatmap = !git-heatmap
+	appraise = !~/.local/gopath/bin/git-appraise
+	review = !~/.dotfiles/review.sh
+	rstat = !~/.dotfiles/rstat.sh
+	rfiles = !~/.dotfiles/rfiles.sh
+	rheatmap = !git-heatmap
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff -w --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 [core]
 	editor = vim
