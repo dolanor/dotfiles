@@ -35,11 +35,11 @@
 	default = simple
 
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+	insteadOf = https://github.com/
 [url "git@code.tuxago.com:"]
-    insteadOf = https://code.tuxago.com/
+	insteadOf = https://code.tuxago.com/
 [url "git@gitlab.com:"]
-    insteadOf = https://gitlab.com/
+	insteadOf = https://gitlab.com/
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
