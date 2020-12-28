@@ -46,6 +46,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
 Plugin 'nicwest/vim-git-appraise'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'whiteinge/diffconflicts'
 
 " colorscheme/themes
 Plugin 'altercation/vim-colors-solarized'
