@@ -22,6 +22,8 @@
 	rfiles = !~/.dotfiles/rfiles.sh
 	rheatmap = !git-heatmap
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff -w --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	conflicts = mergetool -t diffconflicts
+	pras = pull --rebase --autostash
 [core]
 	editor = vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
