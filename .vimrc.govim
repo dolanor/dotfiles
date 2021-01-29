@@ -173,4 +173,7 @@ noremap ,c :GOVIMReferences<CR>
 noremap ,D :Gdiff origin/master<CR>
 " keep the current buffer and close the diff view, switch it to the next
 " buffer and reopen the diff with origin/master
-noremap ,N :wincmd o<CR>:bnext<CR>:Gdiff origin/master<CR>
+noremap ,N :wincmd o<CR>:bnext<CR>:Gdiff origin/master<CR>:wincmd w<CR>
+noremap ,P :wincmd o<CR>:bprev<CR>:Gdiff origin/master<CR>:wincmd w<CR>
+" toggle line wrapping on all windows of the current tab
+noremap ,w :windo set wrap!<CR>
