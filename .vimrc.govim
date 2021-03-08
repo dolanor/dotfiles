@@ -24,6 +24,7 @@ Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-afterimage'
+Plugin 'sjl/gundo.vim'
 
 " DB
 Plugin 'tpope/vim-dadbod'
@@ -94,6 +95,14 @@ set balloondelay=250
 " case set signcolumn=number
 set signcolumn=yes
 
+" Suggestion: Turn on syntax highlighting for .go files. You might prefer to
+" turn on syntax highlighting for all files, in which case
+"
+" syntax on
+"
+" will suffice, no autocmd required.
+"autocmd! BufEnter,BufNewFile *.go syntax on
+"autocmd! BufLeave *.go syntax off
 syntax on
 
 " Suggestion: turn on auto-indenting. If you want closing parentheses, braces
