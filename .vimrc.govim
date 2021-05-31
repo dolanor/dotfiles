@@ -126,6 +126,7 @@ endif
 
 " personal govim
 call govim#config#Set("GoImportsLocalPrefix","private.git.instance.com")
+call govim#config#Set("ExperimentalWorkspaceModule", 1)
 
 " nice git review with vertical split
 set diffopt+=vertical
