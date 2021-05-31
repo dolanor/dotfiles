@@ -6,6 +6,7 @@ export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bi
 
 # android
 export ANDROID_HOME=~/.local/android-sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
 
 CDPATH=.:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com
 #
