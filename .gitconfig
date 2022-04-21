@@ -3,9 +3,9 @@
 	email = "dolanorgit@evereska.org"
 	signingKey = 000321555
 [alias]
-	lt = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%ai>%Creset' --abbrev-commit --date=relative
-	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit 
+	lt = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ai) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative
+	l = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative
+	la = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit
 	ci = commit -m
 	s = status -s --untracked=no
 	sn = status -s --untracked=normal
@@ -29,8 +29,10 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
+
 [color "diff"]
 	whitespace = red reverse
+
 [push]
 	default = simple
 
