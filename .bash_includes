@@ -1,0 +1,3 @@
+source ~/.dotfiles/.bashconfig
+source ~/.dotfiles/.envvars
+source ~/.dotfiles/.bashrc.dircolors
