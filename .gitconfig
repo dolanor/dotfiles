@@ -51,6 +51,7 @@
 
 [diff]
 	tool = vimdiff
+	external = difft
 [difftool]
 	prompt = false
 [merge]
