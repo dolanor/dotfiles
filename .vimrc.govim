@@ -140,6 +140,14 @@ set t_Co=256
 " gutter
 set number
 
+" save options
+"" don't ask to save buffer when switching with another one
+set hidden
+"" save shortcuts
+nnoremap <C-S>      :<C-U>update<CR>
+vnoremap <C-S>      :<C-U>update<CR>gv
+inoremap <C-S>      <C-O>:update<CR>
+
 " command completion
 set wildmenu
 set wildmode=list:longest,full
