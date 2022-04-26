@@ -2,7 +2,7 @@
 
 # Go
 export GOPATH=~/go
-export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bin/:~/.dotfiles/diff-so-fancy/:~/.local/flutter/bin:$PATH
+export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bin/:~/.dotfiles/bin:~/.local/flutter/bin:$PATH
 
 # android
 export ANDROID_HOME=~/.local/android-sdk
