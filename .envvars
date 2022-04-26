@@ -8,9 +8,13 @@ export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bi
 export ANDROID_HOME=~/.local/android-sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 
-CDPATH=.:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com
+CDPATH=.:~/src/dagger/pkg/universe.dagger.io/:~/src:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com
 #
 # Used by my vim bindings for code review
 REVIEW_BASE=origin/master
 
 export GOPHERJS_GOROOT=~/sdk/go1.12.16
+
+# dagger don't export our own usage (employee)
+export DO_NOT_TRACK=1
+export DAGGER_LOG_FORMAT=plain
