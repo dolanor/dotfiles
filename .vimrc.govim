@@ -139,7 +139,6 @@ set t_Co=256
 
 " gutter
 set number
-set relativenumber
 
 " command completion
 set wildmenu
