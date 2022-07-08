@@ -158,7 +158,7 @@ set diffopt+=vertical
 let g:solarized_termcolors=16
 set background=dark
 colorscheme solarized
-set t_Co=256
+"set t_Co=256
 
 " gutter
 set number
