@@ -8,7 +8,7 @@ export PATH=~/go/bin:/usr/local/go/bin:~/.local/bin:~/.local/google-cloud-sdk/bi
 export ANDROID_HOME=~/.local/android-sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 
-CDPATH=.:~/src/dagger/pkg/universe.dagger.io/:~/src:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com
+export CDPATH=.:~/src:~/src/dagger/pkg/universe.dagger.io/:/media/dolanor/ingolemo/sync/cloudtop-gopath/src/github.com:$GOPATH/src/github.com:$GOPATH/src:$GOPATH/src/code.tuxago.com:$CDPATH
 #
 # Used by my vim bindings for code review
 REVIEW_BASE=origin/master
