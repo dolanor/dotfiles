@@ -57,12 +57,14 @@
 [difftool]
 	prompt = false
 [merge]
-	tool = diffconflicts
+	conflictStyle = diff3
+	tool = vimdiff
 [mergetool "diffconflicts"]
 	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
+
 
 [pager]
     #diff = delta
