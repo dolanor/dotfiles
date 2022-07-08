@@ -18,3 +18,6 @@ export GOPHERJS_GOROOT=~/sdk/go1.12.16
 # dagger don't export our own usage (employee)
 export DO_NOT_TRACK=1
 export DAGGER_LOG_FORMAT=plain
+
+# write error message in english
+export LANG=en_US.UTF-8
