@@ -33,15 +33,9 @@ Plugin 'kristijanhusak/vim-dadbod-ui'
 " Languages
 Plugin 'jaxbot/semantic-highlight.vim'
 
-"" live lint hint
-"Plugin 'dense-analysis/ale'
-
 "" LSP
 Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'mattn/vim-lsp-settings'
-
-"" DAP: debug adapter protocol
-Plugin 'puremourning/vimspector'
 
 "" Go
 Plugin 'govim/govim'
