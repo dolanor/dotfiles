@@ -140,6 +140,17 @@ call govim#config#Set("GoplsEnv",{"GOFLAGS": "-tags=acceptance,e2e"})
 call govim#config#Set("ExperimentalProgressPopups", 1)
 "call govim#config#Set("ExperimentalSemanticTokens", 1)
 
+" general vim
+"
+"" netrw
+""" tree
+let g:netrw_liststyle=0
+""" open the vertical window with 80%
+let g:netrw_winsize=80
+
+"" make the cursor not go till the end
+set scrolloff=5
+
 " nice git review with vertical split
 set diffopt+=vertical
 
