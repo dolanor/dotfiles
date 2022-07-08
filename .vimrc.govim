@@ -289,6 +289,11 @@ noremap <Leader>w :windo set wrap!<CR>
 " fold if err != nil
 noremap <Leader>z :g/^[[:space:]]*if err /normal zc<CR>
 
+"" markdown
+
+" add a clipboard as a markdown link
+" needs tpope/vim-surround 
+xmap <Leader>u <Plug>VSurround]%a()<Esc>"+P
 
 " vim-lsp
 
