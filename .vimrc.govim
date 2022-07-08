@@ -201,8 +201,11 @@ set path+=~/go/src
 
 " mappings
 
+"" tagbar
+map <Leader>b :TagbarToggle<CR>
+
 "" diff
-noremap ,d :Gdiff<CR>
+noremap <Leader>d :Gdiff<CR>
 
 "" Go
 noremap <Leader>R :GOVIMRename<CR>
@@ -276,13 +279,13 @@ endfunction
 
 
 "" reviews
-noremap ,D :Gdiff origin/master<CR>
+noremap <Leader>D :Gdiff origin/main<CR>
 " keep the current buffer and close the diff view, switch it to the next
 " buffer and reopen the diff with origin/master
-noremap ,N :wincmd o<CR>:bnext<CR>:Gdiff origin/master<CR>:wincmd w<CR>
-noremap ,P :wincmd o<CR>:bprev<CR>:Gdiff origin/master<CR>:wincmd w<CR>
+noremap <Leader>N :wincmd o<CR>:bnext<CR>:Gdiff origin/main<CR>:wincmd w<CR>
+noremap <Leader>P :wincmd o<CR>:bprev<CR>:Gdiff origin/main<CR>:wincmd w<CR>
 " toggle line wrapping on all windows of the current tab
-noremap ,w :windo set wrap!<CR>
+noremap <Leader>w :windo set wrap!<CR>
 
 " vim-lsp
 
