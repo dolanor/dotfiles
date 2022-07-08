@@ -69,6 +69,7 @@ Plugin 'wakatime/vim-wakatime'
 " inputs
 Plugin 'junegunn/vim-emoji'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
