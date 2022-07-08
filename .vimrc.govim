@@ -286,6 +286,9 @@ noremap <Leader>N :wincmd o<CR>:bnext<CR>:Gdiff origin/main<CR>:wincmd w<CR>
 noremap <Leader>P :wincmd o<CR>:bprev<CR>:Gdiff origin/main<CR>:wincmd w<CR>
 " toggle line wrapping on all windows of the current tab
 noremap <Leader>w :windo set wrap!<CR>
+" fold if err != nil
+noremap <Leader>z :g/^[[:space:]]*if err /normal zc<CR>
+
 
 " vim-lsp
 
