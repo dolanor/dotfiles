@@ -33,12 +33,21 @@ Plugin 'kristijanhusak/vim-dadbod-ui'
 " Languages
 Plugin 'jaxbot/semantic-highlight.vim'
 
+"" live lint hint
+"Plugin 'dense-analysis/ale'
+
 "" LSP
 Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'mattn/vim-lsp-settings'
 
+"" DAP: debug adapter protocol
+Plugin 'puremourning/vimspector'
+
 "" Go
 Plugin 'govim/govim'
+
+"" Java
+Plugin 'artur-shaik/vim-javacomplete2'
 
 "" JSON
 Plugin 'tpope/vim-jdaddy'
@@ -325,6 +334,12 @@ xmap <Leader>u <Plug>VSurround]%a()<Esc>"+P
 "    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
 "    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 "augroup END
+
+let g:pt_command = '
+  \ pt --nogroup --column  --ignore-case  --hidden --follow --color
+  \ -G=".*\.(js|json|php|md|styl|jade|html|config|py|cpp|c|go|hs|rb|conf)" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:pt_command .shellescape(<q-args>), 1, <bang>0)
 
 " CUE
 "" syntax
