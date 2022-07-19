@@ -40,8 +40,8 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[url "git@code.tuxago.com:"]
-	insteadOf = https://code.tuxago.com/
+# [url "git@code.tuxago.com:"]
+# 	insteadOf = https://code.tuxago.com/
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 

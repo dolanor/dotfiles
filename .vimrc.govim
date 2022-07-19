@@ -162,7 +162,7 @@ set diffopt+=vertical
 
 " solarized
 let g:solarized_termcolors=16
-set background=dark
+set background=light
 colorscheme solarized
 "set t_Co=256
 
