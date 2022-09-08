@@ -212,14 +212,14 @@ set path+=~/go/src
 " mappings
 
 "" tagbar
-map <Leader>b :TagbarToggle<CR>
+map ,b :TagbarToggle<CR>
 
 "" diff
-noremap <Leader>d :Gdiff<CR>
+noremap ,d :Gdiff<CR>
 
 "" Go
-noremap <Leader>R :GOVIMRename<CR>
-noremap <Leader>c :GOVIMReferences<CR>
+noremap ,R :GOVIMRename<CR>
+noremap ,c :GOVIMReferences<CR>
 "noremap K :GOVIM<CR>
 noremap K : <C-u>call GOVIMHover()<CR>
 
@@ -251,7 +251,7 @@ endfunction
 " * Ctrl-v will open that result in a vertical split
 " * Ctrl-t will open that result in a new tab
 "
-nmap <Leader>s :call GovimFZFSymbol('')<CR>
+nmap ,s :call GovimFZFSymbol('')<CR>
 
 " s:symbolActions are the actions that, in addition to plain <Enter>,
 " we want to be able to fire from fzf. Here we map them to the corresponding
@@ -289,22 +289,24 @@ endfunction
 
 
 "" reviews
-noremap <Leader>D :Gdiff origin/main<CR>
+noremap ,D :Gdiff origin/main<CR>
 " keep the current buffer and close the diff view, switch it to the next
 " buffer and reopen the diff with origin/master
-noremap <Leader>N :wincmd o<CR>:bnext<CR>:Gdiff origin/main<CR>:wincmd w<CR>
-noremap <Leader>P :wincmd o<CR>:bprev<CR>:Gdiff origin/main<CR>:wincmd w<CR>
+noremap ,N :wincmd o<CR>:bnext<CR>:Gdiff origin/main<CR>:wincmd w<CR>
+noremap ,P :wincmd o<CR>:bprev<CR>:Gdiff origin/main<CR>:wincmd w<CR>
 " toggle line wrapping on all windows of the current tab
-noremap <Leader>w :windo set wrap!<CR>
+noremap ,w :windo set wrap!<CR>
 " fold if err != nil
-noremap <Leader>z :g/^[[:space:]]*if err /normal zc<CR>
+noremap ,z :g/^[[:space:]]*if err /normal zc<CR>
 
 "" markdown
 
 " add a clipboard as a markdown link
 " needs tpope/vim-surround 
-xmap <Leader>u <Plug>VSurround]%a()<Esc>"+P
+xmap ,u <Plug>VSurround]%a()<Esc>"+P
 
+
+noremap ,T :let netrw_liststyle=3<CR>:vsplit<CR>:e .<CR>
 
 let g:pt_command = '
   \ pt --nogroup --column  --ignore-case  --hidden --follow --color
@@ -342,7 +344,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gr <plug>(lsp-references)
     nmap <buffer> gi <plug>(lsp-implementation)
     "nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <Leader>rn <plug>(lsp-rename)
+    nmap <buffer> ,rn <plug>(lsp-rename)
     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
@@ -366,17 +368,17 @@ augroup END
 
 
 let g:vimspector_enable_mappings = 'HUMAN'
-nmap <leader>vl :call vimspector#Launch()<CR>
-nmap <leader>vr :VimspectorReset<CR>
-nmap <leader>ve :VimspectorEval
-nmap <leader>vw :VimspectorWatch
-nmap <leader>vo :VimspectorShowOutput
-nmap <leader>vi <Plug>VimspectorBalloonEval
-xmap <leader>vi <Plug>VimspectorBalloonEval
+nmap ,vl :call vimspector#Launch()<CR>
+nmap ,vr :VimspectorReset<CR>
+nmap ,ve :VimspectorEval
+nmap ,vw :VimspectorWatch
+nmap ,vo :VimspectorShowOutput
+nmap ,vi <Plug>VimspectorBalloonEval
+xmap ,vi <Plug>VimspectorBalloonEval
 
 " for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
+nmap ,di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
+xmap ,di <Plug>VimspectorBalloonEval
 
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB', 'vscode-node-debug2' ]
