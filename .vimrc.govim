@@ -166,6 +166,10 @@ set background=light
 colorscheme solarized
 "set t_Co=256
 
+" make :terminal work with solarized theme in gnome-terminal with solarized
+" activated
+set t_Co=16
+
 " gutter
 set number
 
