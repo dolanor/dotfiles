@@ -4,12 +4,12 @@
 " users will like/prefer.
 
 set nocompatible
+filetype off
+
 set nobackup
 set nowritebackup
 set noswapfile
 
-filetype off
-filetype plugin on
 
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin()
