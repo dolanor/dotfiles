@@ -382,3 +382,6 @@ nmap ,di <Plug>VimspectorBalloonEval
 xmap ,di <Plug>VimspectorBalloonEval
 
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB', 'vscode-node-debug2' ]
+
+nmap ,fb :Buffers<CR>
+nmap ,ff :Files<CR>
