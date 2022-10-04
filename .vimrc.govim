@@ -52,6 +52,9 @@ Plugin 'tpope/vim-jdaddy'
 "" CUE
 Plugin 'jjo/vim-cue'
 
+"" GraphQL
+Plugin 'jparise/vim-graphql'
+
 "" PlantUML
 Plugin 'aklt/plantuml-syntax'
 
