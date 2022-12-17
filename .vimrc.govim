@@ -144,7 +144,6 @@ endif
 
 " personal govim
 call govim#config#Set("GoImportsLocalPrefix","private.git.instance.com")
-call govim#config#Set("ExperimentalWorkspaceModule", 1)
 call govim#config#Set("GoplsEnv",{"GOFLAGS": "-tags=acceptance,e2e"})
 call govim#config#Set("ExperimentalProgressPopups", 1)
 "call govim#config#Set("ExperimentalSemanticTokens", 1)
