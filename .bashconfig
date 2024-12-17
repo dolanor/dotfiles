@@ -31,3 +31,40 @@ function titerm() {
 	all="$@"
 	printf "\e]2;${all}\a"
 }
+
+
+# dark
+alias dark='gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark \
+&& gsettings set org.gnome.desktop.interface color-scheme prefer-dark'
+
+# light
+alias light='gsettings set org.gnome.desktop.interface gtk-theme Yaru \
+&& gsettings set org.gnome.desktop.interface color-scheme prefer-light'
+
+function toggleTheme {
+	current="`gsettings get org.gnome.desktop.interface gtk-theme`"
+	
+	newTheme=""
+	pref=""
+	case "${current}" in
+		"'Yaru'")
+			newTheme="'Yaru-dark'"
+			pref="prefer-dark"
+			;;
+		"'Yaru-dark'")
+			newTheme="'Yaru'"
+			pref="prefer-light"
+			;;
+		*)
+			newTheme="'Yaru-dark'"
+			pref="prefer-dark"
+			;;
+	esac
+
+
+	#echo "THEME:" $current $newTheme
+	#return
+	gsettings set org.gnome.desktop.interface gtk-theme ${newTheme} \
+		&& gsettings set org.gnome.desktop.interface color-scheme ${pref}
+}
+
