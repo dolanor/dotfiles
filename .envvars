@@ -45,3 +45,5 @@ export PATH=~/src/dagger/cmd/dagger:$PATH
 export FLYCTL_INSTALL="/home/dolanor/.fly"
 export PATH=$FLYCTL_INSTALL/bin:$PATH
 
+HISTSIZE=100000
+HISTFILESIZE=20000000
