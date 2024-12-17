@@ -1,5 +1,6 @@
 # To source from the ~/.bashrc
 
+export EDITOR=vi
 
 PATH=~/.local/flutter/bin:$PATH
 PATH=~/.dotfiles/bin:$PATH
