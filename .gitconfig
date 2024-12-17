@@ -4,11 +4,11 @@
 	signingKey = 000321555
 [alias]
 	l   = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative
-	la  = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --all
+	la  = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --branches --all
 	lt  = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative
-	lta = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative --all
+	lta = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)(%aN <%ae>)%Creset' --abbrev-commit --date=relative --branches --all
 	ls  = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset %C(bold green)%G?%C(reset) %C(magenta)%GS%C(reset)' --abbrev-commit --date=relative
-	lsa = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset %C(bold green)%G?%C(reset) %C(magenta)%GS%C(reset)' --abbrev-commit --date=relative --all
+	lsa = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%aN <%ae>)%Creset %C(bold green)%G?%C(reset) %C(magenta)%GS%C(reset)' --abbrev-commit --date=relative --branches --all
 
 	ci = commit -m
 	s = status -s --untracked=no
