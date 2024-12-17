@@ -1,0 +1,7 @@
+||id.google.com^
+
+||accounts.google.com/gsi/$3p
+
+||smartlock.google.com^
+
+! Block "Sign in with Google" iframe in top right corner of websites ||accounts.google.com/gsi/iframe 
