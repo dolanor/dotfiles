@@ -40,6 +40,8 @@ export GOPHERJS_GOROOT=~/sdk/go1.19.3
 # dagger don't export our own usage (employee)
 export DO_NOT_TRACK=1
 export DAGGER_LOG_FORMAT=plain
+export PATH=~/src/dagger/cmd/dagger:$PATH
+
 export FLYCTL_INSTALL="/home/dolanor/.fly"
 export PATH=$FLYCTL_INSTALL/bin:$PATH
 
