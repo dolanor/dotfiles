@@ -24,7 +24,15 @@ Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-afterimage'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
 Plugin 'sjl/gundo.vim'
+
+" powerline
+Plugin 'powerline/powerline'
+
+" yaml
+Plugin 'ingydotnet/yaml-vim'
 
 " DB
 Plugin 'tpope/vim-dadbod'
@@ -34,14 +42,24 @@ Plugin 'kristijanhusak/vim-dadbod-ui'
 Plugin 'jaxbot/semantic-highlight.vim'
 
 "" LSP
-Plugin 'prabirshrestha/vim-lsp'
-"Plugin 'mattn/vim-lsp-settings'
+" Plugin 'prabirshrestha/vim-lsp'
+" Plugin 'mattn/vim-lsp-settings'
 
 "" DAP: debug adapter protocol
-Plugin 'puremourning/vimspector'
+" Plugin 'puremourning/vimspector'
 
 "" Go
 Plugin 'govim/govim'
+"" TinyGo
+Plugin 'sago35/tinygo.vim'
+" vim-go, just for syntax
+"Plugin 'fatih/vim-go'
+
+
+"" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'preservim/vim-markdown'
+
 
 "" Java
 Plugin 'artur-shaik/vim-javacomplete2'
@@ -142,11 +160,27 @@ endif
 
 " end govim default
 
-" personal govim
-call govim#config#Set("GoImportsLocalPrefix","private.git.instance.com")
-call govim#config#Set("GoplsEnv",{"GOFLAGS": "-tags=acceptance,e2e"})
+"" personal govim
+
+"call govim#config#Set("GoImportsLocalPrefix","private.git.instance.com")
+
+" for consensys quorumkeyserver
+"call govim#config#Set("GoplsEnv",{"GOFLAGS": "-tags=acceptance,e2e"})
+
+" for tinygo bluepill dev
+" call govim#config#Set("GoplsEnv", { "GOOS": "linux", "GOARCH": "arm", "GOARM": "6", "GOFLAGS": "-tags=cortexm,baremetal,linux,arm,bluepill,stm32f103,stm32f1,stm32,tinygo,math_big_pure_go,gc.conservative,scheduler.tasks,serial.uart", "GOROOT": "/home/dolanor/.cache/tinygo/goroot-132e72cbff8a381c67632e835c743a6e28765d7e2cc6bb1d92e6be30d73a5ee6"})
+
 call govim#config#Set("ExperimentalProgressPopups", 1)
 "call govim#config#Set("ExperimentalSemanticTokens", 1)
+" deactivate gofumpt while working on WS to avoid style conflicts
+"call govim#config#Set("Gofumpt", 1)
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+let g:markdown_folding = 1
+
+autocmd FileType slide setlocal syntax=markdown
+autocmd FileType md setlocal syntax=markdown
 
 " general vim
 "
@@ -164,9 +198,11 @@ set diffopt+=vertical
 
 " solarized
 let g:solarized_termcolors=16
-set background=light
+set background=dark
 colorscheme solarized
 "set t_Co=256
+set t_Co=16
+set t_Cs="Fix bad spell issue in solarized theme"
 
 " make :terminal work with solarized theme in gnome-terminal with solarized
 " activated
@@ -181,7 +217,7 @@ set hidden
 "" save shortcuts
 nnoremap <C-S>      :<C-U>update<CR>
 vnoremap <C-S>      :<C-U>update<CR>gv
-inoremap <C-S>      <C-O>:update<CR>
+inoremap <C-S>      <C-O>:update<CR><Esc>
 
 " command completion
 set wildmenu
@@ -220,10 +256,7 @@ map ,b :TagbarToggle<CR>
 noremap ,d :Gdiff<CR>
 
 "" Go
-noremap ,R :GOVIMRename<CR>
-noremap ,c :GOVIMReferences<CR>
-"noremap K :GOVIM<CR>
-noremap K : <C-u>call GOVIMHover()<CR>
+au BufRead,BufNewFile *.gotpl set filetype=gohtmltmpl
 
 " GovimFZFSymbol is a user-defined function that can be called to start fzf in
 " a mode whereby it uses govim's new child-parent capabilities to query the
@@ -253,7 +286,17 @@ endfunction
 " * Ctrl-v will open that result in a vertical split
 " * Ctrl-t will open that result in a new tab
 "
+
+noremap ,R :GOVIMRename<CR>
+noremap ,c :GOVIMReferences<CR>
+noremap K : <C-u>call GOVIMHover()<CR>
+"noremap K :GOVIM<CR>
 nmap ,s :call GovimFZFSymbol('')<CR>
+
+" noremap ,R :LspRename<CR>
+" noremap ,c :LspReferences<CR>
+" noremap K  :LspHover<CR>
+
 
 " s:symbolActions are the actions that, in addition to plain <Enter>,
 " we want to be able to fire from fzf. Here we map them to the corresponding
@@ -300,13 +343,14 @@ noremap ,P :wincmd o<CR>:bprev<CR>:Gdiff origin/main<CR>:wincmd w<CR>
 noremap ,w :windo set wrap!<CR>
 " fold if err != nil
 noremap ,z :g/^[[:space:]]*if err /normal zc<CR>
+" close the tab
+noremap ,t :tabclose<CR>
 
 "" markdown
 
 " add a clipboard as a markdown link
 " needs tpope/vim-surround 
 xmap ,u <Plug>VSurround]%a()<Esc>"+P
-
 
 noremap ,T :let netrw_liststyle=3<CR>:vsplit<CR>:e .<CR>
 
@@ -328,10 +372,10 @@ autocmd! BufEnter,BufNewFile *.cue syntax on
 
 
 " CUE LSP
-if executable('daggerlsp')
+if executable('dagger')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'daggerlsp',
-        \ 'cmd': {server_info->['daggerlsp']},
+        \ 'name': 'dagger_cue_lsp',
+        \ 'cmd': {server_info->['dagger', 'cuelsp']},
         \ 'allowlist': ['cue'],
         \ })
 endif
@@ -357,8 +401,8 @@ function! s:on_lsp_buffer_enabled() abort
     " refer to doc to add more commands
 endfunction
 
-let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('/tmp/vim-lsp.log')
+let g:lsp_log_verbose = 1
 
 let g:lsp_experimental_workspace_folders = get(g:, 'lsp_experimental_workspace_folders', 1)
 
@@ -368,6 +412,9 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+" shortcuts for background
+nmap <F6> :set bg=light<CR>
+nmap <F5> :set bg=dark<CR>
 
 let g:vimspector_enable_mappings = 'HUMAN'
 nmap ,vl :call vimspector#Launch()<CR>
@@ -385,5 +432,16 @@ xmap ,di <Plug>VimspectorBalloonEval
 
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB', 'vscode-node-debug2' ]
 
+" FZF shortcuts
 nmap ,fb :Buffers<CR>
 nmap ,ff :Files<CR>
+"
+" modeline for specific file configuration
+set modeline
+set modelineexpr
+set modelines=4
+
+
+" spell check
+" ignore duration, eg. 10h46m
+syntax match duration /[0-9]*h?[0-9]*m?/ contains=@NoSpell
