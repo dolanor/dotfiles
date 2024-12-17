@@ -46,8 +46,8 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-# [url "git@code.tuxago.com:"]
-# 	insteadOf = https://code.tuxago.com/
+[url "git@code.tuxago.com:"]
+ 	insteadOf = https://code.tuxago.com/
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
@@ -59,7 +59,8 @@
 
 [diff]
 	tool = vimdiff
-	external = difft
+	#external =  delta --color-only
+#difft
 [difftool]
 	prompt = false
 [merge]
@@ -79,7 +80,7 @@
     #show = delta
 
 [interactive]
-    diffFilter = delta --color-only
+#    diffFilter = delta --color-only
 
 [delta]
     features = side-by-side line-numbers decorations
