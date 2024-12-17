@@ -31,6 +31,8 @@
 	rheatmap = !git-heatmap
 	conflicts = mergetool -t diffconflicts
 	pras = pull --rebase --autostash
+
+	authors = shortlog -n -s --
 [core]
 	editor = vim
 [color]
