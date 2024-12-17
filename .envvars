@@ -16,6 +16,9 @@ export PATH
 # android
 export ANDROID_HOME=~/.local/android-sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_NDK_HOME=~/.local/android-ndk-r27
+export PATH=~/.local/android-studio/bin:$PATH
+export PATH=~/.local/android-sdk/platform-tools:$PATH
 
 # CDPATH
 CDPATH=$GOPATH/src/code.tuxago.com:$CDPATH
