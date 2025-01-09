@@ -41,6 +41,12 @@ Plugin 'kristijanhusak/vim-dadbod-ui'
 " Languages
 Plugin 'jaxbot/semantic-highlight.vim'
 
+" Markdown
+Plugin 'preservim/vim-markdown'
+
+"" live lint hint
+"Plugin 'dense-analysis/ale'
+
 "" LSP
 " Plugin 'prabirshrestha/vim-lsp'
 " Plugin 'mattn/vim-lsp-settings'
@@ -62,7 +68,7 @@ Plugin 'preservim/vim-markdown'
 
 
 "" Java
-Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'artur-shaik/vim-javacomplete2'
 
 "" JSON
 Plugin 'tpope/vim-jdaddy'
@@ -98,6 +104,13 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/vim-emoji'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+" Hex edition
+Plugin 'fidian/hexmode'
+
+" 3D
+"" GLSL
+Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()
 filetype plugin indent on
@@ -160,9 +173,15 @@ endif
 
 " end govim default
 
-"" personal govim
+" personal govim
 
 "call govim#config#Set("GoImportsLocalPrefix","private.git.instance.com")
+
+"call govim#config#Set("ExperimentalSemanticTokens", 1)
+"call govim#config#Set("ExperimentalProgressPopups", 1)
+
+" deactivate gofumpt while working on WS to avoid style conflicts
+"call govim#config#Set("Gofumpt", 1)
 
 " for consensys quorumkeyserver
 "call govim#config#Set("GoplsEnv",{"GOFLAGS": "-tags=acceptance,e2e"})
@@ -170,17 +189,14 @@ endif
 " for tinygo bluepill dev
 " call govim#config#Set("GoplsEnv", { "GOOS": "linux", "GOARCH": "arm", "GOARM": "6", "GOFLAGS": "-tags=cortexm,baremetal,linux,arm,bluepill,stm32f103,stm32f1,stm32,tinygo,math_big_pure_go,gc.conservative,scheduler.tasks,serial.uart", "GOROOT": "/home/dolanor/.cache/tinygo/goroot-132e72cbff8a381c67632e835c743a6e28765d7e2cc6bb1d92e6be30d73a5ee6"})
 
-call govim#config#Set("ExperimentalProgressPopups", 1)
-"call govim#config#Set("ExperimentalSemanticTokens", 1)
-" deactivate gofumpt while working on WS to avoid style conflicts
-"call govim#config#Set("Gofumpt", 1)
-
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 let g:markdown_folding = 1
 
 autocmd FileType slide setlocal syntax=markdown
 autocmd FileType md setlocal syntax=markdown
+
+"call govim#config#Set("ExperimentalAllowModfileModifications", 0)
 
 " general vim
 "
@@ -192,6 +208,10 @@ let g:netrw_winsize=80
 
 "" make the cursor not go till the end
 set scrolloff=5
+
+" java config
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java JCEnable
 
 " nice git review with vertical split
 set diffopt+=vertical
@@ -257,6 +277,10 @@ noremap ,d :Gdiff<CR>
 
 "" Go
 au BufRead,BufNewFile *.gotpl set filetype=gohtmltmpl
+
+" put go template directives in a toned down color
+highlight GoTemplate guifg=red guibg=green ctermfg=darkgrey ctermbg=yellow
+syntax match GoTemplate /{{.*}}/
 
 " GovimFZFSymbol is a user-defined function that can be called to start fzf in
 " a mode whereby it uses govim's new child-parent capabilities to query the

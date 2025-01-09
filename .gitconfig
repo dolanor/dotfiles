@@ -14,14 +14,16 @@
 	s = status -s --untracked=no
 	sn = status -s --untracked=normal
 	sa = status -s --untracked=all
-
-	ddc = diff --color=auto -w --no-ext-diff
 	dc = diff --color=auto -w
 	ddcc = diff --color=auto -w --cached --no-ext-diff
 	dcc = diff --color=auto -w --cached
 	ddw = diff --color-words -w --no-ext-diff
 	dw = diff --color-words -w
 	dwe = diff --color-words="[^[:space:]./]"
+
+	ddc = diff --color=auto -w --no-ext-diff
+	ddcc = diff --color=auto -w --no-ext-diff
+
 	co = checkout
 	b = branch
 	appraise = !~/.local/gopath/bin/git-appraise
@@ -47,7 +49,7 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@code.tuxago.com:"]
- 	insteadOf = https://code.tuxago.com/
+	insteadOf = https://code.tuxago.com/
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
@@ -92,3 +94,9 @@
     file-decoration-style = none
 #[http]
 #	cookiefile = /home/dolanor/.gitcookies
+[gpg]
+	#format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/dolanor/.ssh/allowed_signers
+[init]
+	defaultBranch = main

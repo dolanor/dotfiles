@@ -2,6 +2,8 @@
 
 export EDITOR=vi
 
+export FLYCTL_INSTALL="/home/dolanor/.fly"
+
 PATH=~/.local/flutter/bin:$PATH
 PATH=~/.dotfiles/bin:$PATH
 PATH=~/.local/google-cloud-sdk/bin/:$PATH
@@ -25,12 +27,10 @@ export PATH=~/.local/android-sdk/platform-tools:$PATH
 CDPATH=$GOPATH/src/code.tuxago.com:$CDPATH
 CDPATH=$GOPATH/src:$CDPATH
 CDPATH=$GOPATH/src/github.com:$CDPATH
-CDPATH=~/src:$CDPATH
-CDPATH=~/src/dagger/pkg/universe.dagger.io/:$CDPATH
 CDPATH=/media/dolanor/ingolemo/sync/cloudtop-gopath/src/github.com:$CDPATH
-CDPATH=.:$CDPATH
+CDPATH=~/src/dagger/pkg/universe.dagger.io/:$CDPATH
+CDPATH=~/src:$CDPATH
 
-export CDPATH
 
 # Used by my vim bindings for code review
 REVIEW_BASE=origin/master
@@ -40,10 +40,12 @@ export GOPHERJS_GOROOT=~/sdk/go1.19.3
 # dagger don't export our own usage (employee)
 export DO_NOT_TRACK=1
 export DAGGER_LOG_FORMAT=plain
-export PATH=~/src/dagger/cmd/dagger:$PATH
 
 export FLYCTL_INSTALL="/home/dolanor/.fly"
 export PATH=$FLYCTL_INSTALL/bin:$PATH
 
 HISTSIZE=100000
 HISTFILESIZE=20000000
+export PATH=~/src/dagger/bin:$PATH
+
+export CDPATH=.:$CDPATH
