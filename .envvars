@@ -12,9 +12,10 @@ PATH=~/.local/bin:$PATH
 
 # Go
 export GOPATH=~/go
-PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export GOVIM_GOPLS_FLAGS="-ocagent=http://localhost:55678 -debug=localhost:6060"
 
-export PATH
+
 
 # android
 export ANDROID_HOME=~/.local/android-sdk
