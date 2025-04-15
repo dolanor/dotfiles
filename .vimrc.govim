@@ -469,3 +469,36 @@ set modelines=4
 " spell check
 " ignore duration, eg. 10h46m
 syntax match duration /[0-9]*h?[0-9]*m?/ contains=@NoSpell
+
+" journaling / logging in the obsidian style
+command! Log execute 'edit ~/cloud/notes/journal/' . strftime('%Y-%m-%d') . '.md'
+
+
+" Command: StartWork (alias SW)
+command! StartWork call StartWorkEntry()
+command! SW StartWork
+
+function! StartWorkEntry()
+    let l:time = strftime('%H:%M')
+    call append(line('.'), '- ' . l:time . ' - : ')
+    normal! j02f:la
+    normal! A
+endfunction
+
+" Command: StopWork (alias STW)
+command! StopWork call StopWorkEntry()
+command! STW StopWork
+
+function! StopWorkEntry()
+    let l:time = strftime('%H:%M')
+    let l:line = getline('.')
+    let l:colon_pos = match(l:line, ':', match(l:line, ':') + 1)
+    if l:colon_pos > 0
+        let l:newline = strpart(l:line, 0, l:colon_pos) . l:time . strpart(l:line, l:colon_pos)
+        call setline('.', l:newline)
+    else
+        echo "No second colon found on this line."
+    endif
+endfunction
+
+command! -nargs=1 Note execute "edit" '~/cloud/notes/' . '<args>' . '.md'
