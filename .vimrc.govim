@@ -115,6 +115,26 @@ Plugin 'tikhomirov/vim-glsl'
 call vundle#end()
 filetype plugin indent on
 
+set splitright " split vertical on the right
+set encoding=UTF-8
+set fileformats=unix,dos,mac
+set incsearch
+set ttyfast
+set lazyredraw
+
+" speed up syntax highlighting
+set nocursorcolumn
+set nocursorline
+
+" do not hide markdown
+set conceallevel=0
+
+
+" Make Vim to handle long lines nicely.
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+
 " start govim default
 set mouse=a
 
@@ -200,6 +220,58 @@ autocmd FileType md setlocal syntax=markdown
 
 " general vim
 "
+
+
+" Better Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
+
+set complete-=i
+set showmatch
+set smarttab
+
+set tabstop=8
+set shiftwidth=8
+set expandtab
+
+set nrformats-=octal
+set shiftround
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
+
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+
+
+au BufNewFile,BufRead *.vim setlocal noet ts=8 sw=8 sts=8
+au BufNewFile,BufRead *.txt setlocal noet ts=8 sw=8
+au BufNewFile,BufRead *.md setlocal spell noet ts=8 sw=8
+au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+
+" Go settings
+"au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
+" Dockerfile settings
+autocmd FileType dockerfile set noexpandtab
+
+" shell/config/systemd settings
+autocmd FileType fstab,systemd set noexpandtab
+autocmd FileType gitconfig,sh,toml set noexpandtab
+
+" spell check for git commits
+autocmd FileType gitcommit setlocal spell
+
 "" netrw
 """ tree
 let g:netrw_liststyle=0
@@ -241,7 +313,22 @@ inoremap <C-S>      <C-O>:update<CR><Esc>
 
 " command completion
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=list:full
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=migrations                       " Django migrations
+set wildignore+=go/pkg                           " Go static files
+set wildignore+=go/bin                           " Go bin files
+set wildignore+=go/bin-vagrant                   " Go bin-vagrant files
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig
 
 " search options
 "" ignore case in search
