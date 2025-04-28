@@ -338,7 +338,7 @@ set ignorecase
 "" don't ignore case when you type search with some uppercase char
 set smartcase
 "" highlight search
-set hls
+set hlsearch
 
 " Highlights
 "" use :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
