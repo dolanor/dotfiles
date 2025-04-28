@@ -16,6 +16,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'dstein64/vim-startuptime'
+
 " general vim improvements
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
