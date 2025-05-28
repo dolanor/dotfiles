@@ -252,6 +252,7 @@ endif
 cmap w!! w !sudo tee > /dev/null %
 
 
+set spelllang=en,fr
 
 au BufNewFile,BufRead *.vim setlocal noet ts=8 sw=8 sts=8
 au BufNewFile,BufRead *.txt setlocal noet ts=8 sw=8
