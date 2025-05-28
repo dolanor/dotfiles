@@ -591,3 +591,43 @@ function! StopWorkEntry()
 endfunction
 
 command! -nargs=1 Note execute "edit" '~/cloud/notes/' . '<args>' . '.md'
+
+
+" Obsidian link follow
+function! GoToObsidianLinkFile()
+  " Save cursor position
+  let l:save_cursor = getpos('.')
+
+  " Search backward to find '[['
+  let l:start_pos = searchpairpos('\[\[', '', '\]\]', 'bnW')
+  if l:start_pos == [0, 0]
+    echo "No opening [[ found"
+    return
+  endif
+
+  " Search forward to find ']]'
+  let l:end_pos = searchpairpos('\[\[', '', '\]\]', 'nW')
+  if l:end_pos == [0, 0]
+    echo "No closing ]] found"
+    return
+  endif
+
+  " Get the text between [[ and ]]
+  let l:line = getline(l:start_pos[0])
+  let l:file_path = strpart(l:line, l:start_pos[1] + 1, l:end_pos[1] - (l:start_pos[1] + 1) - 1)
+  let l:file_path = substitute(l:file_path, '^\s*\|\s*$', '', 'g')  " Trim whitespace
+
+  " TODO: use a config variable for the vault
+  let l:file_path = '~/cloud/notes/' . l:file_path
+
+  " Append .md extension
+  let l:file_path .= '.md'
+
+  " Try to open the file
+  execute 'edit ' . fnameescape(l:file_path)
+endfunction
+
+augroup markdown_obsidian_mappings
+  autocmd!
+  autocmd FileType markdown nnoremap <silent> gd :call GoToObsidianLinkFile()<CR>
+augroup END
