@@ -71,3 +71,6 @@ function toggleTheme {
 alias mute="pactl list short sources | grep -v monitor | awk '{print $2}' | xargs -I {} pactl set-source-mute {} 1"
 alias unmute="pactl list short sources | grep -v monitor | awk '{print $2}' | xargs -I {} pactl set-source-mute {} 0"
 
+alias ccopy="xclip -selection clipboard"
+alias cpaste="xclip -selection clipboard -o -"
+
