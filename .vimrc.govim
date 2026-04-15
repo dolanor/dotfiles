@@ -632,3 +632,70 @@ augroup markdown_obsidian_mappings
   autocmd!
   autocmd FileType markdown nnoremap <silent> gd :call GoToObsidianLinkFile()<CR>
 augroup END
+
+function! GitHubLink(line1, line2, use_permalink) range
+  " Get repo root
+  let l:root = system('git rev-parse --show-toplevel')
+  let l:root = substitute(l:root, '\n', '', '')
+
+  " Current file relative to root
+  let l:fullpath = expand('%:p')
+  let l:relpath = substitute(l:fullpath, l:root . '/', '', '')
+
+  " Decide ref: commit (permalink) or branch
+  if a:use_permalink
+    let l:ref = system('git rev-parse HEAD')
+  else
+    let l:ref = system('git rev-parse --abbrev-ref HEAD')
+    let l:ref = substitute(l:ref, '\n', '', '')
+    if l:ref ==# 'HEAD'
+      let l:ref = system('git rev-parse HEAD')
+    endif
+  endif
+  let l:ref = substitute(l:ref, '\n', '', '')
+
+  " Get remote URL
+  let l:remote = system('git config --get remote.origin.url')
+  let l:remote = substitute(l:remote, '\n', '', '')
+
+  " Normalize GitHub URL
+  let l:url = l:remote
+  let l:url = substitute(l:url, 'git@github.com:', 'https://github.com/', '')
+  let l:url = substitute(l:url, '\.git$', '', '')
+
+  " Build line fragment
+  if a:line1 == a:line2
+    let l:fragment = '#L' . a:line1
+  else
+    let l:fragment = '#L' . a:line1 . '-L' . a:line2
+  endif
+
+  let l:final = l:url . '/blob/' . l:ref . '/' . l:relpath . l:fragment
+
+  " Copy to clipboard
+  if has('clipboard')
+    let @+ = l:final
+    echo "Copied: " . l:final
+  else
+    " Fallbacks (Linux/macOS)
+    if executable('wl-copy')
+      call system('wl-copy', l:final)
+    elseif executable('xclip')
+      call system('printf %s ' . shellescape(l:final) . ' | xclip -selection clipboard')
+    elseif executable('pbcopy')
+      call system('pbcopy', l:final)
+    else
+      echo l:final
+    endif
+  endif
+endfunction
+
+
+command! -range GitHubLink call GitHubLink(<line1>, <line2>, v:false)
+command! -range GitHubPermalink call GitHubLink(<line1>, <line2>, v:true)
+
+nnoremap ,gl :GitHubLink<CR>
+xnoremap ,gl :GitHubLink<CR>
+
+nnoremap ,gpl :GitHubPermalink<CR>
+xnoremap ,gpl :GitHubPermalink<CR>
