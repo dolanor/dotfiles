@@ -280,6 +280,8 @@ autocmd FileType gitcommit setlocal spell
 let g:netrw_liststyle=0
 """ open the vertical window with 80%
 let g:netrw_winsize=80
+""" don't hide files from me
+let g:netrw_hide=0
 
 "" make the cursor not go till the end
 set scrolloff=5
