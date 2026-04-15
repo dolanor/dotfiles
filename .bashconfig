@@ -68,3 +68,6 @@ function toggleTheme {
 		&& gsettings set org.gnome.desktop.interface color-scheme ${pref}
 }
 
+alias mute="pactl list short sources | grep -v monitor | awk '{print $2}' | xargs -I {} pactl set-source-mute {} 1"
+alias unmute="pactl list short sources | grep -v monitor | awk '{print $2}' | xargs -I {} pactl set-source-mute {} 0"
+
