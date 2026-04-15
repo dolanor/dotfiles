@@ -74,3 +74,10 @@ alias unmute="pactl list short sources | grep -v monitor | awk '{print $2}' | xa
 alias ccopy="xclip -selection clipboard"
 alias cpaste="xclip -selection clipboard -o -"
 
+function workday {
+	DAY=$1
+	cat ~/cloud/notes/journal/${DAY}.md |
+		grep "#work" |
+		sed "s/^-.*[[:digit:]]: \(.*\)#work/- \1/g" |
+		sed "s/ #\b[[:alnum:]-]*\b//g"
+}
